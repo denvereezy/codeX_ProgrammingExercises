@@ -28,7 +28,7 @@ QUnit.test(“My first test”, function(assert){
 
 Look at the content of this file: [test-words-utility.js](./test-words-utility.js)
 
-Unit test enable us to do, continuous integration, this help us to work as a team team and still have working software.
+Unit tests enable us to do continuous integration, this help us to work more effectively as a team and have working properly integrated software using Continuous Integration.
 
 ## Continuous integration
 
