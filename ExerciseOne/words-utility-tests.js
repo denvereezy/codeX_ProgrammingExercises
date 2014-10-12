@@ -1,6 +1,9 @@
+
+var theWords = "A Unit Test is a piece of code that is using your code, exercising some scenarios that it expects to work in a certain way. Unit tests are isolated from external dependencies unlike integration tests. We will focus on Unit Tests.";
+
 QUnit.test( "test if words are counted correctly", function( assert ) {
-  	var wordsUtility = new WordsUtility("ola yeah yoyo");
-	assert.equal(wordsUtility.countWords(), 3);
+  	var wordsUtility = new WordsUtility(theWords);
+	assert.equal(wordsUtility.countWords(), 41);
 });
 
 QUnit.test( "find the longest word", function( assert ) {
