@@ -1,0 +1,380 @@
+<html>
+  <head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Programming 101 
+
+@avermeulen
+
+---
+
+# What we will be doing
+
+* What is a computer program?
+
+* How does it work
+
+* TDD
+
+* Continuous Integration
+
+* We will try it
+
+---
+
+# What is a computer program?
+
+  * Takes input
+  * Process it 
+  * Give some output
+
+List of instructions that when executed, achieve a certain task.
+
+How the instructions are triggered can vary…
+  
+---
+
+# How does a computer program
+
+… remember stuff?
+
+… know stuff?
+
+… decide what to do?
+
+… get stuff done?
+
+… give feedback?
+
+---
+
+class: center, middle
+
+#Computer Programs remember and know stuff using input stored in variables
+
+---
+
+
+
+# Variables
+  Like buckets 
+
+## Like a shelve with labels on
+Different types
+
+Place holders of information
+
+Point to information
+
+Scope - what variables are visible when?
+
+---
+
+#Variables type 
+
+##Can be simple
+
+Hold one variable : number/string/boolean
+
+Variables can be objects - so we can ask them questions
+
+* What is your length
+* Give me a part of you - substring
+
+## Complex
+* Data structures
+* Hold multiple values : List or Map
+
+---
+
+# Variables can hold behaviour and state -> knows what to do
+  * Object Orientation : behaviour and state
+  * Functional : Immutable state & behaviour can be passed around
+
+## Persistence
+
+Variables stored for later use
+  * Files
+  * Databases - SQL / NoSQL
+  * Localstorage - Javascript
+
+---
+
+# The journey of variables
+
+Variables are taken as input
+
+Variables are evaluated...
+
+Variables are given as output
+
+---
+
+#Computer programs get stuff done by applying logic on variables
+
+Variables are inspected
+
+Logic applied
+
+Arithmetic calculation
+
+Conditional statements
+
+Loops
+
+Task achieved…?
+
+## ... can be synchronous or asynchronous
+
+Synchronous - one after the other
+
+Asynchronous - happens when it happens - no predictions
+
+---
+
+# Conditional statements
+
+Do or don’t do something if a condition is true or false?
+
+
+# Loops
+
+Do something or don’t do something until a condition is true or false?
+
+Block - don’t do anything until…
+
+Callback - do something when
+
+---
+
+# Function = Decisions/Logic grouped together
+
+Give it a name
+
+It takes input
+
+May return output
+
+---
+
+class: center, middle
+
+# How to do in Javascript?
+
+---
+
+#Variable declaration
+
+```javascript
+
+var username = “andre.vermeulen”;
+var age = 38;
+var jogger = true;
+
+console.log(username);
+console.log(age);
+
+var today = Date.getDate();
+
+// Functions / objects
+// object literal
+
+var person = {
+  username : “andre.vermeulen”,
+  age : 38,
+  birthDay : new Date(13, 1, 1976),
+};
+
+console.log(person.username);
+
+var Person = function(username, age, birthDay) {
+  this.username = age;
+  this.age = age;
+  this.birthDay = birthDay;
+};
+
+var person = new Person(“andre.vermeulen”, 38, new Date(13, 1, 1976));
+console.log(person.username);
+
+```
+
+---
+
+# Logic
+
+```javascript
+if (person.birthDay === Date.getDate()){
+  person.age += 1;
+}
+```
+
+# Loops :
+
+```javascript
+
+for(var i = 0; i < person.username.length; i++){
+  var letter = person.username[i];
+  if (letter !== “.”)
+    console.log(letter);
+}
+
+// using while
+
+var counter = 0;
+while(counter < person.username.length){
+  var letter = person.username[counter];
+  if (letter !== “.”)
+    console.log(letter);
+  counter = counter + 1;
+}
+
+
+```
+
+---
+
+#Functions in Javascript:
+
+```javascript
+
+var getLetters = function(thePerson){
+  var letters = [];
+  for(var i = 0; i < thePerson.username.length; i++){
+      var letter = thePerson.username[i];
+      if (letter !== “.”)
+        letters.push(letter)
+  }
+  return letters;
+} 
+
+// calling a function
+var lettersList = getLetters(person);
+
+```
+
+---
+
+# Function scope
+
+```javascript
+
+var PersonFinder = function(){
+  // only visible in the function here
+  var names = [];
+  this.peopleNames =  function(){
+    return names;
+  }
+
+  this.addPerson = function(person){
+    names.push(person);
+  }
+};
+
+// execute it like this...
+var personFinder = new PersonFinder();
+
+console.log(personFinder.peopleNames());
+
+```
+
+Don’t do this:
+
+```javascript
+var personFinder = PersonFinder();
+```
+
+this will be linked to the global scope…
+
+---
+
+# TDD
+
+##Test Driven Development
+
+Way of testing what the program needs to do
+
+Test harness to execute logic written using a Unit Test
+
+Publish ones assumptions
+
+## Test Harnesses:
+  * QUnit - xUnit => JUnit, NUnit etc 
+  * Mocha - Javascript alternative
+  * Easy to see failing tests etc
+
+---
+
+# Continuous Integration
+
+Allow a team to work together more effectively
+
+Continuously integrating code into a central shared code repository
+Unit tests for the program is executed whenever the central shared code repository changed.
+
+## Using CI tool
+  * Check out the code
+  * Execute the tests
+  * Some test runner of sorts
+    * Gulp / Grunt
+  * Report failures
+    * Jenkins
+    * Travis
+
+---
+
+#Let’s give it ago!
+
+https://github.com/codex-academy/codeX_ProgrammingExercises
+
+---
+
+#What is a computer program?
+
+### How does a computer program
+remember stuff? // know stuff? //decide what to do? // get stuff done? //give feedback?
+
+* Variables
+* Logic & Conditional Statement
+* Loops
+* Functions
+
+* Doing all of that in Javascript
+
+### TDD
+### Continuous Integration  
+### We tried it out
+
+---
+
+class: center, middle
+
+# Are you ready to go and try it?
+
+---
+
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
