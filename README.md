@@ -3,8 +3,8 @@
 ##Required tutorials to be completed:
 
 First do these:	
-http://www.codecademy.com/tracks/javascript
-https://www.codeschool.com/courses/javascript-road-trip-part-1
+	* http://www.codecademy.com/tracks/javascript
+	* https://www.codeschool.com/courses/javascript-road-trip-part-1
 
 Here’s a road map for learning Javascript:
 http://sixrevisions.com/javascript/learning-javascript-for-free/

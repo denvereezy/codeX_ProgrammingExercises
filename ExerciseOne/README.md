@@ -22,7 +22,8 @@ I basic structure of a unit test using qunit looks like this:
 
 ```QUnit.test(“My first test”, function(assert){
 	
-});```
+});
+```
 
 Look at the content of this file: ExerciseOne/test-words-utility.js 
 
