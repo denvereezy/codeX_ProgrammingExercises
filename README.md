@@ -7,7 +7,7 @@ First do these:
 	* https://www.codeschool.com/courses/javascript-road-trip-part-1
 
 Here’s a road map for learning Javascript:
-http://sixrevisions.com/javascript/learning-javascript-for-free/
+* http://sixrevisions.com/javascript/learning-javascript-for-free/
 
 ##Required skills:
 	
